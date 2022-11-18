@@ -5,9 +5,8 @@
 
 char nombre [50];						//Nombre de la lista.
 
-typedef struct nodo{					//Creación de la estructura del nodo
+typedef struct nodo{					//CreaciÃ³n de la estructura del nodo
 	int dato;
-	char datos2 [];
 	struct nodo* siguiente;
 } nodo;
 nodo* siguiente = NULL;					//Primeros datos
@@ -21,15 +20,15 @@ void Lista();						//recorrer la lista.
 
 int main(){
 	
-	setlocale(LC_ALL,"spanish");			//La función setlocale en "spanish" selecciona la porción apropiada del escenario del programa y convierte los símbolos que no tienen soporte.
+	setlocale(LC_ALL,"spanish");			//La funciÃ³n setlocale en "spanish" selecciona la porciÃ³n apropiada del escenario del programa y convierte los sÃ­mbolos que no tienen soporte.
 	int opc = 0;
 	
-		printf("|Bienvenido a este programa que te permitirá crear una lista circular en C|");
+		printf("|Bienvenido a este programa que te permitirÃ¡ crear una lista circular en C|");
 		printf("\n\nColoque un nombre a la lista: ");
 		gets(nombre);
 		
-	do{																				//Menú de selección.
-		printf("\n---------------------------------------------------------¬");
+	do{																				//MenÃº de selecciÃ³n.
+		printf("\n---------------------------------------------------------Â¬");
 		printf("\n| 1. Insertar un nuevo nodo en la lista                  |");
 		printf("|\n| 2. Buscar nodos especificos en la lista.               |");       
 		printf("|\n| 3. Modificar nodos de la lista.                        |");
@@ -37,7 +36,7 @@ int main(){
 		printf("|\n| 5. Mostrar la lista de datos.                          |");
 		printf("|\n| 6. Salir del programa.                                 |");
 		printf("|\n----------------------------------------------------------");
-		printf("\n\n Escoja una opción: ");
+		printf("\n\n Escoja una opciÃ³n: ");
 		scanf("%d", &opc);
 		system("cls");
 		switch(opc){
@@ -46,11 +45,11 @@ int main(){
 				insertarNodo();
 				break;
 			case 2:
-				printf("\nBuscar un nodo en la lista. ´%s´\n\n", nombre);
+				printf("\nBuscar un nodo en la lista. Â´%sÂ´\n\n", nombre);
 				buscarNodo();
 				break;	
 			case 3:
-				printf("\nModificar un nodo de la lista ´%s´ \n\n", nombre);
+				printf("\nModificar un nodo de la lista Â´%sÂ´ \n\n", nombre);
 				modificarNodo();
 				break;
 			case 4:
@@ -65,7 +64,7 @@ int main(){
 				printf("\nEl programa ha finalizado...");
 				break;
 			default:
-				printf("\n\n La opción ingresada no existe...\n\n");				//Marca de error.
+				printf("\n\n La opciÃ³n ingresada no existe...\n\n");				//Marca de error.
 		}
 	}while(opc != 6);
 	return 0;
@@ -86,17 +85,17 @@ void insertarNodo(){										//Permite crear e insertar nodos a una lista.
 		nuevo->siguiente = siguiente;
 		anterior = nuevo;
 	}
-	printf("\n Nodo ingresado con éxito\n\n");
+	printf("\n Nodo ingresado con Ã©xito\n\n");
 }
 
-void buscarNodo(){												//Función que permite encontrar un nodo de la lista y determinar si existe al usuario.
+void buscarNodo(){												//FunciÃ³n que permite encontrar un nodo de la lista y determinar si existe al usuario.
 	nodo* act = (nodo*)malloc(sizeof(nodo));
 	act = siguiente;
 	int Buscador = 0, encontrado = 0;
 	printf(" Ingrese el valor de nodo a buscar: ");
 	scanf("%d",&Buscador);
-	if(siguiente!=NULL){											/*Si el primer dato es diferente de NULL, se prosigue con el ciclo que determina si "encontrado" aumentará 
-																	y por ende serán determinados como Nodos existentes en la lista */
+	if(siguiente!=NULL){											/*Si el primer dato es diferente de NULL, se prosigue con el ciclo que determina si "encontrado" aumentarÃ¡ 
+																	y por ende serÃ¡n determinados como Nodos existentes en la lista */
 		do{															
 			if(act->dato == Buscador){
 				printf("\n Nodo con el dato (%d) encontrado\n\n", Buscador);
@@ -108,11 +107,11 @@ void buscarNodo(){												//Función que permite encontrar un nodo de la list
 		if(encontrado==0){
 			printf("\n Nodo no encontrado\n\n");
 		}else{
-			printf("\n La lista ´%s´ no se encuentra vacía\n\n", nombre);				//Mensaje que aparecerá siempre que la lista no disponga de datos.
+			printf("\n La lista Â´%sÂ´ no se encuentra vacÃ­a\n\n", nombre);				//Mensaje que aparecerÃ¡ siempre que la lista no disponga de datos.
 		}	
 }
 }
-void modificarNodo(){										//Función que permite modificar un nodo (en caso de existir dos nodos iguales se modificará el último registrado)
+void modificarNodo(){										//FunciÃ³n que permite modificar un nodo (en caso de existir dos nodos iguales se modificarÃ¡ el Ãºltimo registrado)
 	nodo* act = (nodo*)malloc(sizeof(nodo));
 	act = siguiente;
 	int Buscador = 0, encontrado = 0;
@@ -134,19 +133,19 @@ void modificarNodo(){										//Función que permite modificar un nodo (en caso 
 			printf("\nNodo no encontrado en la lista\n\n");
 		}
 	}else{
-		printf("\nLa lista ´%s´ se encuentra vacía\n\n", nombre);
+		printf("\nLa lista Â´%sÂ´ se encuentra vacÃ­a\n\n", nombre);
 	}	
 }
 
-void eliminarNodo(){								//Función que ejecuta la operación para eliminar el nodo introducido (en nodos similares se elimina el último de la lista)
+void eliminarNodo(){								//FunciÃ³n que ejecuta la operaciÃ³n para eliminar el nodo introducido (en nodos similares se elimina el Ãºltimo de la lista)
 	nodo* act = (nodo*)malloc(sizeof(nodo));
 	act = siguiente;
 	nodo* anterior = (nodo*)malloc(sizeof(nodo));
 	anterior = NULL;
 	int Buscador = 0, encontrado = 0;
-	printf(" Ingrese el valor de nodo eliminará: ");
+	printf(" Ingrese el valor de nodo eliminarÃ¡: ");
 	scanf("%d",&Buscador);
-	if(siguiente!=NULL){											//Si el primer nodo [x] es diferente de NULL se procede el ciclo para encontrar y eliminar (Misma operación de BuscarNodo)
+	if(siguiente!=NULL){											//Si el primer nodo [x] es diferente de NULL se procede el ciclo para encontrar y eliminar (Misma operaciÃ³n de BuscarNodo)
 		do{
 			if(act->dato == Buscador){
 				printf("\n Nodo con el dato (%d) encontrado", Buscador);
@@ -159,7 +158,7 @@ void eliminarNodo(){								//Función que ejecuta la operación para eliminar el 
 				}else{
 					anterior->siguiente = act->siguiente;
 				}
-				printf("\n El nodo acaba de ser eliminado\n\n");				//Para eliminar un nodo, tienen que existir mínimo 2 datos en una lista de lo contrario se eliminará la lista.		
+				printf("\n El nodo acaba de ser eliminado\n\n");				//Para eliminar un nodo, tienen que existir mÃ­nimo 2 datos en una lista de lo contrario se eliminarÃ¡ la lista.		
 				encontrado = 1;
 			}
 			anterior = act;
@@ -172,20 +171,20 @@ void eliminarNodo(){								//Función que ejecuta la operación para eliminar el 
 			free(anterior);
 		}
 	}else{
-		printf("La lista ´%s´ se encuentra vacía\n\n", nombre);
+		printf("La lista Â´%sÂ´ se encuentra vacÃ­a\n\n", nombre);
 	}
 }
 
-void Lista(){													//Visualización de los datos introducidos.
+void Lista(){													//VisualizaciÃ³n de los datos introducidos.
 	nodo* act = (nodo*)malloc(sizeof(nodo));					//Nodo asignado a un bloque de memoria size (recurrente en el programa)
 	act = siguiente;
 	if(siguiente!=NULL){
-		printf("La lista ´%s´ se encuentra conformado por: \n", nombre);
+		printf("La lista Â´%sÂ´ se encuentra conformado por: \n", nombre);
 		do{
 			printf(" %d -", act->dato);
 			act = act->siguiente;
 		}while(act!=siguiente);
 	}else{
-		printf("\n La lista %s se encuentra vacía\n\n", nombre);
+		printf("\n La lista %s se encuentra vacÃ­a\n\n", nombre);
 	}	
 }
